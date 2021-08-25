@@ -1,0 +1,155 @@
+<html>
+
+<head>
+
+    {% load static %}
+
+    <!-- Bootstrap -->
+    <link href="{% static 'proyectoWebApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+     <!-- Fonts -->
+    
+     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
+     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+     
+
+    <!-- Styles -->
+    <link href="{% static 'proyectoWebApp/css/gestion.css' %}" rel="stylesheet">
+    <link href="{% static 'proyectoWebApp/css/gestion2.css' %}" rel="stylesheet">
+    <title>Proyecto Web django</title>
+
+</head>
+
+<body>
+
+    <h1 class="site-heading text-center text-white d-none d-lg-block">
+      
+        <span class="site-heading-lower">{{ post.title }}</span>
+      </h1>
+
+ <!-- Navbar -->
+ <nav id="mainNav" class="nav_default_bg navbar navbar-expand-lg navbar-dark py-lg-4" style="background-color:rgba(75, 90, 104, 0.966) ;">
+    <div class="container">
+      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="{%url 'Home' %}"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav mx-auto">
+          
+          <li class="nav-item {% if request.path == '/' %}active underline{% endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'Home' %}">Inicio</a>
+          </li>
+
+          <li class="nav-item {% if request.path == '/servicios/' %}active underline{% endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'Servicios' %}">Servicios</a>
+          </li>
+
+          <li class="nav-item {% if request.path == '/tienda/' %}active underline{% endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'Tienda' %}">Tienda</a>
+          </li>
+
+          <li class="nav-item {% if request.path == '/contactos/' %}active underline{% endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'Contactos' %}">Contacto</a>
+          </li>
+
+          <li class="nav-item {% if request.path == '/blog/' %}active underline{% endif %} px-lg-4">
+            <a class="nav-link text-uppercase text-expanded" href="{% url 'Blog' %}">Blog</a>
+          </li>
+         
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+    <body class="blog_body">
+
+    <a class="back-btn" href="{% url 'Blog'%}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-bar-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5zM10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5z"/>
+        </svg>
+    </a>
+
+        <div class="posts_container">
+            
+            <h1 class="blog_title">{{ post.title }}</h1>
+
+            <div class="post_small_containers">
+                <p class="post_content">
+                    {{ post.content }}
+                </p>
+                {% if post.image1 %}
+                    <img src="../../../Media/{{ post.image1 }}" alt="" class="blog_images">
+                {% endif %}
+            </div>
+            
+            {% if post.content2 %}
+                <div class="post_small_containers">
+                    <p class="post_content">
+                        {{ post.content2 }}
+                    </p>
+                    {% if post.image2 %}
+                        <img src="../../../Media/{{ post.image2 }}" alt="" class="blog_images">
+                    {% endif %}
+                </div>
+            {% endif %}
+            
+            {% if post.content3 %}
+                <div class="post_small_containers">
+                    <p class="post_content">
+                        {{ post.content3 }}
+                    </p>
+                    {% if post.image3 %}
+                        <img src="../../../Media/{{ post.image2 }}" alt="" class="blog_images">
+                    {% endif %}
+                </div>
+            {% endif %}
+
+        </div>
+
+    </body>
+
+
+    <!-- Footer -->
+    <footer class="footer text-faded text-center py-5" style="background-color: rgba(75, 90, 104, 0.966);">
+      <div class="container">
+        <p class="m-0">
+            <a href="#" class="link">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+            <a href="#" class="link">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+            <a href="#" class="link">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+        </p>
+        <p class="m-0 mbt">
+            <a href="sample.html" class="link">Política de privacidad</a> ·
+            <a href="sample.html" class="link">Aviso legal</a> ·
+            <a href="sample.html" class="link">Cookies</a>
+        </p>
+        <p class="m-0 mbt1">&copy; Gestión de Pedidos 2020</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap -->
+    <script src="{% static 'proyectoWebApp/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'proyectoWebApp/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+
+</body>
+
+
+</html>

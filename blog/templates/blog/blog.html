@@ -1,0 +1,38 @@
+{% extends 'proyectoWebApp/base.html' %}
+
+{% load static %}
+
+{% block title %}Blog{% endblock %}
+
+{% block content %}
+
+<body class="blog_body">
+
+    <section class="blog_header">
+        <div class="gray_container">
+            <h1 class="blog_title">Este es nuestro blog</h1>
+            <p class="blog_content">
+                Esta es una presentación de nuestro equipo tenemos conocimientos de javascript, html css, python , django,
+                react-native, también brindamos servicios y cambios a tu página podemos mejorarla o crearla desde cero nos 
+                apasiona el trabajo y tenemos multiples proyectos
+            </p>
+        </div>
+    </section>
+
+    {% for posts in posts_intro %}
+        
+        <div class="big_blog_container">
+        <a class="blog_container" href="{% url 'Post' posts.slug %}">
+            <img src="../../../Media/{{posts.image}}" alt="" class="blog_images">
+                <div class="small_blog_container">
+                    <h1 class="blog_title">{{posts.title}}</h1>
+                    <p class="blog_content">{{posts.intro_content}}</p>
+                </div>
+            </a>
+        </div>
+
+    {% endfor %}
+
+</body>
+
+{% endblock %}

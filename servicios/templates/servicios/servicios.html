@@ -1,0 +1,18 @@
+{% extends 'proyectoWebApp/base.html'%}
+
+{% load static %}
+{% block title%}Servicios{% endblock %}
+
+{% block content %}
+
+    <div class="serv_max_container">
+        {% for servicio in servicios %}
+            <div class="serv_min_container">
+                <h2 class="serv_title">{{servicio.titulo}}</h2>
+                <p class="serv_content">{{servicio.contenido}}</p>
+                <img class="serv_img" src="../../../Media/{{servicio.imagen}}">
+            </div>
+        {% endfor %}
+    </div>  
+
+{% endblock %}

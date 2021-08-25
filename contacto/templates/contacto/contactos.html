@@ -1,0 +1,27 @@
+{% extends 'proyectoWebApp/base.html'%}
+
+{% load static %}
+{% block title%}Contactos{% endblock %}
+
+{% block content %}
+
+	<div class="form_contacto">
+		<form method="POST" style="text-align: center;">
+			{% csrf_token %}
+			<table style="color:white;">
+				
+				{% if alert_msg %}
+					<p style="color:white; font-size: 20px;">{{alert_msg}}</p>
+				{% endif %}
+
+				{% if "novalido" in request.GET %}
+					<p style="color:white; font-size: 20px;">Algo ha salido mal</p>
+				{% endif %}
+
+				{{ formulario.as_table }}
+			</table>
+			<input type="submit" value="Enviar" style="width:150px;">
+		</form>
+	</div>
+
+{% endblock %}

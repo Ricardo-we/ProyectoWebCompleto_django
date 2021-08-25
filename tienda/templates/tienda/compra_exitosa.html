@@ -1,0 +1,15 @@
+{% extends 'proyectoWebApp/base.html' %}
+
+{% load static %}
+{% block title %} <p class="black_text">Compra exitosa</p>{% endblock %}
+
+{% block content %} 
+    <body class="compra_exitosa">
+        <div class="compra_exitosa_containers">
+            <h1>Gracias por tu compra!</h1>
+            <a href="{% url 'Home' %}" class="basic_btn">Regresar</a>
+        </div>
+    </body>
+
+{% endblock %}
+
