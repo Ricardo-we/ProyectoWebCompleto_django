@@ -88,7 +88,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 #import dj_database_url
 #from decouple import config
 #
@@ -160,3 +159,5 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = "ricardo0406dev@gmail.com"
 EMAIL_HOST_PASSWORD = "kari0406"
 
+import django_heroku
+django_heroku.settings(locals())
