@@ -31,7 +31,6 @@ urlpatterns = [
     path("contacto/", include('contacto.urls')),
     re_path(r'Media/(?P<path>.*)$', serve, {'document_root':settings.MEDIA_ROOT})
 ]
-pija = 34
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)
